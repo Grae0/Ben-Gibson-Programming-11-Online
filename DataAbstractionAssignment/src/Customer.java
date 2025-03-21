@@ -56,6 +56,7 @@ public class Customer {
                     // Add deposit to checking
                     checkBalance += amt;
                     // Round in case of floating point errors
+                    checkBalance = (double) Math.round(checkBalance * 100) / 100;
                     deposits.add(new Deposit(amt, date, account, checkBalance));
                     break;
                 case SAVING:
