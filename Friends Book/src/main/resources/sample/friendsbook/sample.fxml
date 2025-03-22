@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.friendsbook.Controller">
+   <tabs>
+      <Tab text="Create a Friend">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="600.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="571.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="CENTER_RIGHT" prefHeight="571.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <Label text="First Name:" />
+                              <Label text="Last Name:" />
+                              <Label text="Nickname:" />
+                              <Label text="Birthday:">
+                                 <VBox.margin>
+                                    <Insets bottom="75.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Phone Number:" />
+                              <Label text="Email:" />
+                              <Label text="School/Place of Work:" />
+                              <Label text="Extra Notes:">
+                                 <VBox.margin>
+                                    <Insets bottom="75.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="571.0" prefWidth="200.0" spacing="12.0">
+                           <children>
+                              <TextField fx:id="txtFirstName" onKeyTyped="#allowFriendCreation" promptText="first name" />
+                              <TextField fx:id="txtLastName" promptText="last name" />
+                              <TextField fx:id="txtNickname" promptText="nickname" />
+                              <TextField fx:id="txtMonth" onKeyTyped="#allowFriendCreation" promptText="month (00)" />
+                              <TextField fx:id="txtDay" onKeyTyped="#allowFriendCreation" promptText="day (00)" />
+                              <TextField fx:id="txtYear" onKeyTyped="#allowFriendCreation" promptText="year (0000)" />
+                              <TextField fx:id="txtPhone" promptText="phone number" />
+                              <TextField fx:id="txtEmail" promptText="email" />
+                              <TextField fx:id="txtWork" promptText="school/place of work" />
+                              <TextArea fx:id="txtNotes" prefHeight="100.0" prefWidth="200.0" promptText="Extra notes..." />
+                           </children>
+                        </VBox>
+                        <Button fx:id="btnCreateFriend" disable="true" mnemonicParsing="false" onAction="#createFriend" text="Create Friend">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="List of Friends">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="friendList" layoutX="14.0" layoutY="14.0" onMouseClicked="#displayFriend" prefHeight="541.0" prefWidth="200.0" />
+                  <VBox alignment="TOP_CENTER" layoutX="226.0" prefHeight="571.0" prefWidth="360.0" spacing="15.0">
+                     <children>
+                        <Label fx:id="lblName" text="Friend">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="300.0" prefWidth="360.0" spacing="15.0">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="300.0" prefWidth="145.0" spacing="15.0">
+                                 <children>
+                                    <Label text="Nickname:" />
+                                    <Label text="Birthday:" />
+                                    <Label text="Phone Number:" />
+                                    <Label text="Email:" />
+                                    <Label text="School/Place of Work:" />
+                                    <Label text="Notes:" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="300.0" prefWidth="200.0" spacing="15.0">
+                                 <children>
+                                    <Label fx:id="lblNickname" />
+                                    <Label fx:id="lblBirthday" />
+                                    <Label fx:id="lblPhone" />
+                                    <Label fx:id="lblEmail" />
+                                    <Label fx:id="lblWork" />
+                                    <Label fx:id="lblNotes" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnDeleteFriend" disable="true" mnemonicParsing="false" onAction="#deleteFriend" text="Delete Friend" />
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
