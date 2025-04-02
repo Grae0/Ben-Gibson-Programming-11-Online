@@ -60,10 +60,22 @@ public class Main {
                     customer.deposit(depAmt, depDate, depAccount);
                     // Display new Balance (just thought I would add this to help make the experience easier)
                     if (depAccount.equals("Checking")) {
-                        System.out.println("\nYour new checking balance is $" + customer.getCheckBalance());
+                        // If the balance is negative add a negative sign to the result
+                        if (customer.getCheckBalance() < 0) {
+                            System.out.println("\nYour new checking balance is -$" + customer.getCheckBalance() * -1);
+                        }
+                        else {
+                            System.out.println("\nYour new checking balance is $" + customer.getCheckBalance());
+                        }
                     }
                     else if (depAccount.equals("Saving")) {
-                        System.out.println("\nYour new saving balance is $" + customer.getSavingBalance());
+                        // If the balance is negative add a negative sign to the result
+                        if (customer.getSavingBalance() < 0) {
+                            System.out.println("\nYour new saving balance is -$" + customer.getSavingBalance() * -1);
+                        }
+                        else {
+                            System.out.println("\nYour new saving balance is $" + customer.getSavingBalance());
+                        }
                     }
                     break;
                 // If withdrawing
@@ -94,14 +106,24 @@ public class Main {
                     Date withDate = new Date();
                     // Make withdrawal in customer object
                     customer.withdraw(withAmt, withDate, withAccount);
-                    // Display new Balance
-                    // If checking was accessed
+                    // Display new Balance (just thought I would add this to help make the experience easier)
                     if (withAccount.equals("Checking")) {
-                        System.out.println("\nYour new checking balance is $" + customer.getCheckBalance());
+                        // If the balance is negative add a negative sign to the result
+                        if (customer.getCheckBalance() < 0) {
+                            System.out.println("\nYour new checking balance is -$" + customer.getCheckBalance() * -1);
+                        }
+                        else {
+                            System.out.println("\nYour new checking balance is $" + customer.getCheckBalance());
+                        }
                     }
-                    // If saving was accessed
                     else if (withAccount.equals("Saving")) {
-                        System.out.println("\nYour new saving balance is $" + customer.getSavingBalance());
+                        // If the balance is negative add a negative sign to the result
+                        if (customer.getSavingBalance() < 0) {
+                            System.out.println("\nYour new saving balance is -$" + customer.getSavingBalance() * -1);
+                        }
+                        else {
+                            System.out.println("\nYour new saving balance is $" + customer.getSavingBalance());
+                        }
                     }
                     break;
                 // If displaying

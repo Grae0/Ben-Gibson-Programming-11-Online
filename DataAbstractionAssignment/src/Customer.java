@@ -82,29 +82,47 @@ public class Customer {
         String decimals = String.valueOf(amt).split("\\.")[1];
         // Check withdrawal is greater than zero and does not have more than two decimal places
         if (amt > 0 && decimals.length() <= 2) {
-            // Check if overdrafting
-            if (checkOverdraft(amt, account)) {
-                // Print message to user
-                System.out.println("OVERDRAFT! No money was withdrawn.");
-            }
-            // If not overdrafting
-            else {
-                // Determine which account is being accessed
-                switch (account) {
-                    case CHECKING:
+            // Determine which account is being accessed
+            switch (account) {
+                case CHECKING:
+                    // Check if withdrawing leaves balance as less than -$100
+                    if (checkBalance - amt < OVERDRAFT) {
+                        // Print message stating that amount cannot be withdrawn
+                        System.out.println("You cannot withdraw that much");
+                    }
+                    // Otherwise the balance is greater than -$100
+                    else {
                         // Remove withdrawal from checking
                         checkBalance -= amt;
                         // Round in case of floating point errors
                         checkBalance = (double) Math.round(checkBalance * 100) / 100;
                         withdraws.add(new Withdraw(amt, date, account, checkBalance));
-                        break;
-                    case SAVING:
+                        // Check if overdrafting
+                        if (checkOverdraft(amt, account)) {
+                            // Print message to user about their overdraft
+                            System.out.println("OVERDRAFT! Your balance is now below $0! You can only withdraw up to -$100!");
+                        }
+                    }
+                    break;
+                case SAVING:
+                    // Check if withdrawing leaves balance as less than -$100
+                    if (savingBalance - amt < OVERDRAFT) {
+                        // Print message stating that amount cannot be withdrawn
+                        System.out.println("You cannot withdraw that much");
+                    }
+                    // Otherwise the balance is greater than -$100
+                    else {
                         // Remove withdrawal from saving
                         savingBalance -= amt;
                         // Round in case of floating point errors
                         savingBalance = (double) Math.round(savingBalance * 100) / 100;
                         withdraws.add(new Withdraw(amt, date, account, savingBalance));
-                }
+                        // Check if overdrafting
+                        if (checkOverdraft(amt, account)) {
+                            // Print message to user about their overdraft
+                            System.out.println("OVERDRAFT! Your balance is now below $0! You can only withdraw up to -$100!");
+                        }
+                    }
             }
         }
     }
@@ -115,13 +133,13 @@ public class Customer {
         switch (account) {
             case CHECKING:
                 // Check if overdrafting from checking
-                if (checkBalance - amt < OVERDRAFT) {
+                if (checkBalance - amt < 0) {
                     isOverdraft = true;
                 }
                 break;
             case SAVING:
                 // Check if overdrafting from saving
-                if (savingBalance - amt < OVERDRAFT) {
+                if (savingBalance - amt < 0) {
                     isOverdraft = true;
                 }
         }
