@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.finalproject.Controller">
+   <children>
+      <VBox fx:id="welcomePage" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0">
+         <children>
+            <Label text="Welcome to Journalr">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label text="Where you can write in your own private journal">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#start" text="Continue">
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="signupPage" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" spacing="20.0" visible="false">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Label text="To set up your account, please">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="enter the following information:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <Label text="Username:" />
+                        <Label text="Password:" />
+                        <Label text="Confirm password:" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="185.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="textSignupUsername" promptText="username" />
+                        <TextField fx:id="textSignupPassword" promptText="password" />
+                        <TextField fx:id="textSignupConfirm" promptText="confirm password" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label fx:id="lblSignupInstructions" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#signup" text="Confirm">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="600.0" spacing="25.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="73.0" prefWidth="203.0" spacing="20.0">
+                     <children>
+                        <Label text="Already have an account?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#goLogin" text="Login" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="loginPage" alignment="CENTER" prefHeight="500.0" prefWidth="600.0" spacing="20.0" visible="false">
+         <children>
+            <VBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Label text="To login please enter your">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="username and password">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <Label text="Username:" />
+                        <Label text="Password:" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="185.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="textLoginUsername" promptText="username" />
+                        <TextField fx:id="textLoginPassword" promptText="password" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lblLoginInstructions" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#login" text="Login" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="600.0" spacing="25.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="73.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <Label text="Don't have an account?">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#goSignup" text="Sign Up" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TabPane fx:id="mainPage" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" visible="false">
+        <tabs>
+            <Tab text="Journal">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="79.0" layoutY="52.0" mnemonicParsing="false" onAction="#createEntry" text="New Entry" />
+                        <ListView fx:id="listEntries" layoutX="14.0" layoutY="120.0" onMouseClicked="#displayEntry" prefHeight="337.0" prefWidth="200.0" />
+                        <Label fx:id="lblEntryTitle" layoutX="263.0" layoutY="18.0" />
+                        <TextField fx:id="textEntryTitle" layoutX="263.0" layoutY="14.0" onKeyTyped="#checkSaveEntry" prefHeight="25.0" prefWidth="323.0" promptText="Title" visible="false" />
+                        <TextArea fx:id="textEntryContents" layoutX="263.0" layoutY="46.0" onKeyTyped="#checkSaveEntry" prefHeight="287.0" prefWidth="323.0" promptText="Start writing here" visible="false" />
+                        <Button fx:id="btnSaveEntry" disable="true" layoutX="310.0" layoutY="388.0" mnemonicParsing="false" onAction="#saveEntry" text="Save Entry" />
+                        <Button fx:id="btnDeleteEntry" disable="true" layoutX="458.0" layoutY="388.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete Entry" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Account">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="600.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="471.0" prefWidth="600.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="lblEditInstructions" textFill="RED">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT" prefHeight="229.0" prefWidth="600.0" spacing="15.0">
+                                 <children>
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="373.0" prefWidth="139.0" spacing="20.0">
+                                       <children>
+                                          <Label text="Username:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Password:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Name:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Email:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Phone:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Address:">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="263.0" prefWidth="306.0" spacing="22.0">
+                                       <children>
+                                          <Label fx:id="lblUsername">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="3.0" />
+                                             </padding>
+                                          </Label>
+                                          <StackPane prefHeight="242.0" prefWidth="306.0">
+                                             <children>
+                                                <VBox fx:id="accountEditingPane" alignment="CENTER_LEFT" prefHeight="199.0" prefWidth="306.0" spacing="22.9" visible="false">
+                                                   <children>
+                                                      <TextField fx:id="textAccountPassword" promptText="password" />
+                                                      <TextField fx:id="textAccountName" promptText="name" />
+                                                      <TextField fx:id="textAccountEmail" promptText="email" />
+                                                      <TextField fx:id="textAccountPhone" promptText="phone" />
+                                                      <TextField fx:id="textAccountAddress" promptText="address" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox fx:id="accountInformationPane" alignment="BOTTOM_LEFT" prefHeight="199.0" prefWidth="306.0" spacing="22.9">
+                                                   <children>
+                                                      <Label fx:id="lblPassword">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblName">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblEmail">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblPhone">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblAddress">
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </VBox>
+                                    <Button fx:id="btnEditInformation" mnemonicParsing="false" onAction="#editInformation" text="Edit Information" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
